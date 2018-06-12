@@ -1,25 +1,27 @@
 
 body{
-  font-family: sans-serif;
-  background-color: #000;
+  font-family: 'IBM Plex Sans', sans-serif;
   margin: 0;
+  background-color: white;
 }
 
 header{
-  color: grey;
-  background-color: white;
+  color: black;
+
   padding: 1em;
 }
 
 .icon{
-  width: 300px;
+  margin-top: 2em;
+  width: 200px;
   border-radius: 50%;
   grid-row: 1/3;
   grid-column: 2;
 }
 
 .icon:hover{
-  transform: rotate(5deg);
+  transform: scale(1.5) rotate(5deg);
+  transition-duration: 0.5s;
 }
 
 .container{
@@ -33,8 +35,10 @@ header{
 }
 
 .name{
+  margin-top: 2em;
   justify-self: center;
   align-self: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .lead{
@@ -42,185 +46,174 @@ header{
   padding-bottom: 1em;
 }
 
-.wrapper-parent{
-  background: url("images/bg.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-
 
 .wrapper{
   display: grid;
   grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 300px;
   grid-gap: 1em;
-  padding: 5em;
+  padding: 3em;
 }
 
-.bg{
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  margin: auto;
-  text-align: center;
-  justify-content: center;
-  -webkit-transition: all 0.5s linear;
- -moz-transition: all 0.5s linear;
-  -ms-transition: all 0.5s linear;
-   -o-transition: all 0.5s linear;
-      transition: all 0.3s linear;
+.flip3D{
+   width:400px; height:260px; margin:10px; float:left;
+ }
+
+.flip3D > .front{
+	position:absolute;
+	transform: perspective( 400px ) rotateY( 0deg );
+	background: white;
+  width:400px;
+  height:260px;
+  border-radius: 7px;
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+}
+
+.flip3D > .back{
+	position:absolute;
+	transform: perspective( 400px ) rotateY( 180deg );
+	background: #80BFFF;
+  width:400px;
+  height:260px;
+  border-radius: 7px;
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+}
+
+.flip3D:hover > .front{
+	transform: perspective( 600px ) rotateY( -180deg );
+}
+
+.flip3D:hover > .back{
+	transform: perspective( 600px ) rotateY( 0deg );
+}
+
+.back{
+  padding: 1em;
 }
 
 
-.bg:hover{
-  cursor: pointer;
-  border-radius: 0;
-  width: 400px;
-  height: 300px;
-}
-
-
-.wrapper .item1 {
-  background: url("images/project1.png");
+.item1 .front{
+  background-image: url("images/project1.gif");
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-.item1:hover{
-  background: url("images/project1.gif");
+.item2 .front{
+  background-image: url("images/project2.gif");
   background-position: center;
-  background-size: 100% 85%;
   background-repeat: no-repeat;
-}
-
-.wrapper .item2{
-  background: url("images/project2.png");
   background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  grid-row: 2/3;
-  grid-column: 1/3;
 }
 
-.item2:hover{
-  background: url("images/project2.gif");
+.item3 .front{
+  background-image: url("images/project3.gif");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 85%;
-
-}
-
-.wrapper .item3{
-  background: url("images/project3.png");
   background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  grid-row: 1/2;
-  grid-column: 2/3;
 }
 
-.item3:hover{
-  background: url("images/project3.gif");
+.item4 .front{
+  background-image: url("images/project4.gif");
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
-  background-size: 100% 85%;
-}
-
-.wrapper .item4{
-  background: url("images/project4.png");
   background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  grid-row: 2/3;
-  grid-column: 2/4;
+
 }
 
-.item4:hover{
-  background: url("images/project4.gif");
+.item5 .front{
+  background-image: url("images/project5.gif");
   background-position: center;
-  background-size: 100% 85%;
   background-repeat: no-repeat;
-}
-
-.wrapper .item5{
-  background: url("images/project5.png");
   background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  grid-row: 1/2;
-  grid-column: 3/4;
 }
 
-.item5:hover{
-  background: url("images/project5.gif");
-  background-position: center;
-  background-size: 100% 85%;
-  background-repeat: no-repeat;
-}
-
-@media (max-width: 800px) {
-  .wrapper .item5{
-    grid-row: 3/4;
-    grid-column: 1/2;
-  }
-  .wrapper .item4{
-    grid-row: 3/4;
-    grid-column: 2/3;
+@media (max-width: 1300px) {
+  .wrapper{
+    grid-template-columns: repeat(2,1fr);
   }
 }
 
-@media (max-width: 500px) {
-  .wrapper .item2{
-    grid-row: 2/3;
-    grid-column: 1/2;
+@media (max-width: 880px){
+  .wrapper{
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px;
+    padding: .5em;
   }
+  .container{
 
-  .wrapper .item3{
-    grid-row: 3/4;
-    grid-column: 1/2;
-  }
-
-  .wrapper .item4{
-    grid-row: 4/5;
-    grid-column: 1/2;
-  }
-
-  .wrapper .item5{
-    grid-row: 5/6;
-    grid-column: 1/2;
+    grid-column: 1/3;
   }
 }
 
 .footer{
   text-align: center;
+  margin-top: 4em;
+
 }
 
-.social:hover {
-     -webkit-transform: scale(1.1);
-     -moz-transform: scale(1.1);
-     -o-transform: scale(1.1);
- }
  .social {
-     -webkit-transform: scale(0.8);
-     /* Browser Variations: */
-
-     -moz-transform: scale(0.8);
-     -o-transform: scale(0.8);
-     -webkit-transition-duration: 0.5s;
-     -moz-transition-duration: 0.5s;
-     -o-transition-duration: 0.5s;
+  transform: scale(0.8);
+  transition-duration: 0.5s;
+  border-radius: 7px;
+  color: #80BFFF;
+  margin-bottom: .5em;
  }
 
+ .social:hover {
+      transform: scale(1.1);
+  }
 
- #social-fb:hover {
+ .fa-wrench:hover {
      color: #3B5998;
  }
- #social-gp:hover {
+ .fa-github:hover {
      color: #d34836;
  }
- #social-em:hover {
+ .fa-paper-plane:hover {
      color: #f39c12;
  }
+
+ .button {
+   border-radius: 5%;
+   background-color: #f4511e;
+   color: #FFFFFF;
+   text-align: center;
+   font-size: 20px;
+   padding: 1em;
+   width: 200px;
+   transition: all 0.5s;
+   cursor: pointer;
+   display: inline-block;
+   text-decoration: none;
+   position: absolute;
+   bottom: 1em;
+ }
+
+ .button:hover{
+   background-color: firebrick;
+ }
+
+.more-info{
+  margin-top: 3em;
+  text-align: center;
+  font-size: 20px;
+}
+
+.fa-cog{
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
