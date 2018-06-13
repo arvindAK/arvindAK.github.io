@@ -25,7 +25,7 @@ const projects = [
 
   {title: "API Awesome Employee Fetching",
   description: "Fetch 12 users from an API, diplay them in cards and use modals to inspect each card.",
-  link: "https://arvindak.github.io/THFS-Project5_API/#",
+  link: "https://arvindak.github.io/THFS-Project5-API/#",
   projectNumber: 5
   }
 ];
