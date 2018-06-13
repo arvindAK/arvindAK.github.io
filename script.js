@@ -6,7 +6,7 @@ const projects = [
   },
 
   {title: "Pagination and dynamic filtering",
-  description: "Dynamicly search and filtering a dataset of students.",
+  description: "Dynamicly search and filter a dataset of students.",
   link: "https://arvindak.github.io/THFS-Project2_Pagination/#",
   projectNumber: 2
   },
@@ -24,7 +24,7 @@ const projects = [
   },
 
   {title: "API Awesome Employee Fetching",
-  description: "Fetch 12 users from an API, diplay them in cards and use modals to inspect each card.",
+  description: "Fetch 12 users from an API, display them in cards, using modals to inspect each card.",
   link: "https://arvindak.github.io/THFS-Project5-API/#",
   projectNumber: 5
   }
